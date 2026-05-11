@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oração pela Vaga em Programação</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #e8c97a;
+      --gold-dim: #8a6e2f;
+      --cream: #faf6ef;
+      --cream-dark: #f0e8d8;
+      --ink: #1a1510;
+      --ink-soft: #3d3020;
+      --ink-muted: #6b5a3e;
+      --border: rgba(201, 168, 76, 0.25);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--ink);
+      background-image:
+        radial-gradient(ellipse at 20% 10%, rgba(201,168,76,0.07) 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 90%, rgba(201,168,76,0.05) 0%, transparent 55%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 3rem 1.25rem 5rem;
+      font-family: 'EB Garamond', serif;
+      color: var(--ink);
+    }
+
+    .page {
+      background: var(--cream);
+      background-image:
+        radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.08) 0%, transparent 60%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+      max-width: 720px;
+      width: 100%;
+      padding: 4rem 3.5rem 3.5rem;
+      border: 1px solid var(--border);
+      box-shadow:
+        0 0 0 6px rgba(201,168,76,0.06),
+        0 4px 60px rgba(0,0,0,0.55),
+        inset 0 1px 0 rgba(255,255,255,0.6);
+      position: relative;
+      animation: fadeIn 1.4s ease both;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Corner ornaments */
+    .page::before,
+    .page::after {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      border-color: var(--gold-dim);
+      border-style: solid;
+      opacity: 0.45;
+    }
+    .page::before {
+      top: 16px; left: 16px;
+      border-width: 1px 0 0 1px;
+    }
+    .page::after {
+      bottom: 16px; right: 16px;
+      border-width: 0 1px 1px 0;
+    }
+
+    .inner-corners::before,
+    .inner-corners::after {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      border-color: var(--gold-dim);
+      border-style: solid;
+      opacity: 0.45;
+    }
+    .inner-corners::before {
+      top: 16px; right: 16px;
+      border-width: 1px 1px 0 0;
+    }
+    .inner-corners::after {
+      bottom: 16px; left: 16px;
+      border-width: 0 0 1px 1px;
+    }
+
+    /* Divider ornamental */
+    .ornament-top {
+      text-align: center;
+      margin-bottom: 2.25rem;
+      animation: fadeIn 1.6s ease 0.2s both;
+    }
+
+    .ornament-top .cross {
+      font-family: 'Cinzel', serif;
+      font-size: 1.6rem;
+      color: var(--gold);
+      display: block;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 18px rgba(201,168,76,0.25);
+    }
+
+    .ornament-line {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      justify-content: center;
+    }
+    .ornament-line span {
+      height: 1px;
+      width: 80px;
+      background: linear-gradient(to right, transparent, var(--gold-dim));
+    }
+    .ornament-line span:last-child {
+      background: linear-gradient(to left, transparent, var(--gold-dim));
+    }
+    .ornament-line i {
+      color: var(--gold);
+      font-style: normal;
+      font-size: 0.65rem;
+      letter-spacing: 3px;
+      font-family: 'Cinzel', serif;
+    }
+
+    h1.titulo {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+      font-weight: 600;
+      color: var(--gold-dim);
+      text-align: center;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      animation: fadeIn 1.6s ease 0.3s both;
+    }
+
+    h2.saudacao {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.35rem, 4vw, 1.85rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--ink-soft);
+      text-align: center;
+      line-height: 1.5;
+      margin-bottom: 2.5rem;
+      animation: fadeIn 1.6s ease 0.4s both;
+    }
+
+    .separator {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .separator hr {
+      flex: 1;
+      border: none;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--border), transparent);
+    }
+    .separator .dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+      opacity: 0.6;
+    }
+
+    .oracao {
+      animation: fadeIn 1.8s ease 0.5s both;
+    }
+
+    .oracao p {
+      font-size: clamp(1rem, 2.2vw, 1.13rem);
+      line-height: 2;
+      color: var(--ink-soft);
+      margin-bottom: 1.6rem;
+      font-weight: 400;
+      text-align: justify;
+      hyphens: auto;
+    }
+
+    .oracao p.opening {
+      font-size: clamp(1.05rem, 2.4vw, 1.18rem);
+      font-style: italic;
+      color: var(--ink-soft);
+      border-left: 2px solid var(--gold);
+      padding-left: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .oracao p strong {
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .declaracao {
+      background: rgba(201,168,76,0.06);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      padding: 1.5rem 1.75rem;
+      margin: 2rem 0;
+    }
+
+    .declaracao p {
+      margin-bottom: 0.9rem !important;
+      font-style: italic;
+    }
+    .declaracao p:last-child {
+      margin-bottom: 0 !important;
+    }
+
+    .amen {
+      text-align: center;
+      margin-top: 2.5rem;
+    }
+    .amen span {
+      font-family: 'Cinzel', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--gold-dim);
+      letter-spacing: 0.2em;
+      display: inline-block;
+      position: relative;
+    }
+    .amen span::before,
+    .amen span::after {
+      content: '—';
+      margin: 0 0.6rem;
+      color: var(--gold);
+      opacity: 0.5;
+      font-weight: 300;
+    }
+
+    footer {
+      margin-top: 2.5rem;
+      text-align: center;
+      animation: fadeIn 2s ease 0.6s both;
+    }
+
+    .sep-footer {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+    .sep-footer hr {
+      width: 60px;
+      border: none;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold-dim));
+    }
+    .sep-footer hr:last-child {
+      background: linear-gradient(to left, transparent, var(--gold-dim));
+    }
+    .sep-footer .loz {
+      color: var(--gold);
+      font-size: 0.5rem;
+    }
+
+    footer p {
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      color: var(--ink-muted);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    footer a {
+      color: var(--gold-dim);
+      text-decoration: none;
+      transition: color 0.2s;
+      border-bottom: 1px solid transparent;
+    }
+    footer a:hover {
+      color: var(--gold);
+      border-bottom-color: var(--gold);
+    }
+
+    @media (max-width: 540px) {
+      .page {
+        padding: 2.75rem 1.5rem 2.5rem;
+      }
+      .page::before, .page::after,
+      .inner-corners::before, .inner-corners::after {
+        width: 36px;
+        height: 36px;
+        top: 10px; left: 10px;
+      }
+      .page::after { bottom: 10px; right: 10px; left: auto; top: auto; }
+      .inner-corners::before { top: 10px; right: 10px; left: auto; }
+      .inner-corners::after { bottom: 10px; left: 10px; right: auto; top: auto; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page inner-corners">
+
+    <div class="ornament-top">
+      <span class="cross">✦</span>
+      <div class="ornament-line">
+        <span></span>
+        <i>· · ·</i>
+        <span></span>
+      </div>
+    </div>
+
+    <h1 class="titulo">Oração pela Vaga em Programação</h1>
+    <h2 class="saudacao">Senhor Deus, Arquiteto do Universo e Guia dos meus passos,</h2>
+
+    <div class="separator">
+      <hr /><div class="dot"></div><hr />
+    </div>
+
+    <div class="oracao">
+
+      <p class="opening">
+        Aproximo-me de Ti com o coração aberto, humilde e cheio de gratidão.
+        Antes de clamar, antes de pedir, antes de declarar — eu agradeço.
+        Agradeço porque é o que o meu coração sente mais fundo, e porque sei que a gratidão é
+        o idioma que fala mais alto diante do Teu trono.
+      </p>
+
+      <p>
+        Obrigado, Senhor, pelo fôlego que me sustenta ao amanhecer. Obrigado pela saúde que me
+        permite estudar, aprender, crescer e lutar. Obrigado pela mente que o Senhor me deu —
+        capaz de absorver lógica, estrutura e criatividade — uma mente que foi forjada ao longo
+        dos anos em meio à responsabilidade, à análise e à disciplina. Obrigado pelo tempo que
+        Tens me concedido para me preparar, pelos cursos, pelas horas de estudo, pelas linhas
+        de código escritas em silêncio, e pela força que não me deixou desistir quando o caminho
+        parecia longo demais.
+      </p>
+
+      <p>
+        Obrigado pelas portas que se fecharam, porque cada uma delas me redirecionou para este
+        momento, para este propósito e para este chamado. Obrigado pelas dificuldades que me
+        ensinaram resiliência. Obrigado pelo histórico de dez anos em administração e gestão,
+        porque esse repertório não é um peso — é um diferencial que poucos desenvolvedores
+        carregam. Obrigado por cada detalhe da minha trajetória, porque nada foi desperdiçado.
+        Tudo foi semente. E agora, Senhor, eu creio que é tempo de colheita.
+      </p>
+
+      <div class="separator"><hr /><div class="dot"></div><hr /></div>
+
+      <p>
+        Pai, Tu sabes o que há no meu coração. Sabes do desejo genuíno que carrego de entrar
+        na área de programação — não apenas por necessidade, mas por vocação. Tu sabes que me
+        sinto chamado para construir sistemas, resolver problemas reais com código, criar
+        soluções que transformam processos e facilitam vidas. Esse desejo não nasceu do acaso.
+        Nasceu de dentro de mim, e eu creio que foi o Senhor quem o colocou lá.
+      </p>
+
+      <p>
+        Eu sei, Senhor, que ainda estou em formação. Sei que há muito a aprender, e não
+        finjo ter chegado onde ainda não cheguei. Mas também sei — e declaro com fé — que
+        <strong>nem sempre precisamos estar completamente prontos para enfrentar novos desafios.</strong>
+        Os maiores crescimentos da minha vida aconteceram quando eu dei o passo antes de me sentir
+        preparado. E Tu estiveste comigo em cada um deles. Por isso, eu confio que estarás comigo
+        neste também.
+      </p>
+
+      <p>
+        Clamo, então, por uma vaga — seja um estágio, uma oportunidade júnior, ou qualquer
+        abertura que o Senhor considerar certa para mim. Não me importa o tamanho da porta.
+        Me importa que seja a porta que o Senhor abrirá. Porque eu sei que, uma vez dentro,
+        <strong>eu irei me dedicar com tudo que tenho.</strong> Irei aprender com velocidade.
+        Irei crescer com consistência. Irei contribuir com seriedade. Irei honrar a oportunidade
+        como se ela valesse por todas as que eu esperei.
+      </p>
+
+      <div class="separator"><hr /><div class="dot"></div><hr /></div>
+
+      <p>
+        Senhor, eu Te peço que moves pessoas que ainda não conheço. Que o nome certo apareça
+        para o recrutador certo, no momento certo. Que os meus projetos no GitHub falem por mim.
+        Que o meu histórico de dez anos em análise, gestão financeira, ERP e liderança seja lido
+        não como desvio de rota, mas como profundidade de perfil. Que quem ler o meu currículo
+        enxergue o que o Senhor vê: alguém disciplinado, organizado, resiliente, com vontade real
+        de vencer e de construir.
+      </p>
+
+      <p>
+        Prepara minha mente para os processos seletivos. Que eu tenha clareza nas respostas,
+        calma diante das perguntas técnicas e confiança para mostrar o que sei — sem fingir o
+        que ainda não domino. Que a minha autenticidade seja um diferencial, não uma fragilidade.
+        Afasta de mim a síndrome do impostor, o medo de não ser suficiente, a voz que diz que
+        é tarde demais ou que eu não tenho o perfil certo. Essas vozes não vêm do Senhor.
+        Eu as silencio agora, em nome do Teu propósito sobre a minha vida.
+      </p>
+
+      <p>
+        Que o ambiente da minha vaga seja de aprendizado genuíno. Que eu encontre pessoas
+        dispostas a ensinar, líderes que valorizem o crescimento do time, e desafios que me
+        tirem da zona de conforto e me façam evoluir rapidamente. Que o código que eu escrever
+        tenha qualidade, que as soluções que eu propuser tenham impacto, e que a minha presença
+        no time seja sentida como contribuição — não como ausência.
+      </p>
+
+      <div class="declaracao">
+        <p>
+          Eu declaro, Senhor, que não preciso entender o <em>como</em> o Senhor fará. Não preciso
+          enxergar o <em>porquê</em> de cada etapa do caminho. Minha fé não está nas circunstâncias.
+          Minha fé está em Ti.
+        </p>
+        <p>
+          Declaro que a vaga já está preparada. Que o caminho já está sendo aberto. Que as pessoas
+          certas já foram movidas. Que o tempo do Senhor é perfeito — e que eu escolho confiar nele,
+          mesmo quando meus olhos ainda não enxergam o resultado.
+        </p>
+        <p>
+          Declaro que sou capaz. Declaro que sou disciplinado. Declaro que tenho força de vontade
+          para vencer. Declaro que <strong>Deus está comigo</strong> — e que isso, por si só, já
+          é suficiente para que tudo seja possível.
+        </p>
+      </div>
+
+      <p>
+        Fortifica o meu vínculo contigo, Senhor. Que eu não busque apenas a bênção, mas o
+        Benfeitor. Que a vaga, quando chegar, seja fruto de uma caminhada com o Senhor — não
+        uma conquista isolada, mas um capítulo de uma história que Tens escrito com cuidado,
+        com propósito e com amor.
+      </p>
+
+      <p>
+        Guarda minha saúde para que eu possa estudar e trabalhar com vigor. Guarda meu lar
+        para que ele seja fonte de paz e não de ansiedade. Guarda minha mente dos pensamentos
+        que paralisam e do medo que imobiliza. Que eu acorde cada dia com a certeza de que
+        estou caminhando na direção certa — mesmo que os passos ainda sejam lentos, mesmo que
+        o horizonte ainda esteja distante.
+      </p>
+
+      <p>
+        Senhor, eu me lanço neste desafio com fé. Abro os meus braços para o novo. Abro a
+        minha mente para o aprendizado que virá. Abro o meu coração para a oportunidade que
+        o Senhor já está preparando. <strong>Eu confio. Eu acredito. Eu recebo.</strong>
+      </p>
+
+    </div>
+
+    <div class="amen">
+      <span>Amém</span>
+    </div>
+
+    <div class="separator" style="margin-top: 2.5rem;">
+      <hr /><div class="dot"></div><hr />
+    </div>
+
+    <footer>
+      <div class="sep-footer">
+        <hr />
+        <span class="loz">◆</span>
+        <hr />
+      </div>
+      <p>
+        Criado por
+        <a href="https://github.com/fabriciobzrr" target="_blank" rel="noopener noreferrer">
+          Fabricio Bezerra
+        </a>
+      </p>
+    </footer>
+
+  </main>
+</body>
+</html>
